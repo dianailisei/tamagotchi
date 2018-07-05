@@ -24,18 +24,42 @@ function setNames() {
 
 function giveFood() {
     var level = parseInt(document.getElementsByTagName("meter")[0].getAttribute("value")) +1;
-    //console.log(level);
     document.getElementsByTagName("meter")[0].setAttribute("value", level);
-}
-
-function giveHappiness() {
-    var level = parseInt(document.getElementsByTagName("meter")[2].getAttribute("value")) +1;
-    //console.log(level);
-    document.getElementsByTagName("meter")[2].setAttribute("value", level);
 }
 
 function giveSleep() {
     var level = parseInt(document.getElementsByTagName("meter")[1].getAttribute("value")) +1;
-    //console.log(level);
     document.getElementsByTagName("meter")[1].setAttribute("value", level);
 }
+
+function giveHappiness() {
+    var level = parseInt(document.getElementsByTagName("meter")[2].getAttribute("value")) +1;
+    document.getElementsByTagName("meter")[2].setAttribute("value", level);
+}
+
+function dropFood() {
+    var level = parseInt(document.getElementsByTagName("meter")[0].getAttribute("value")) -1;
+    document.getElementsByTagName("meter")[0].setAttribute("value", level);
+}
+
+function dropSleep() {
+    var level = parseInt(document.getElementsByTagName("meter")[1].getAttribute("value")) -1;
+    document.getElementsByTagName("meter")[1].setAttribute("value", level);
+}
+
+function dropHappiness() {
+    var level = parseInt(document.getElementsByTagName("meter")[2].getAttribute("value")) -1;
+    document.getElementsByTagName("meter")[2].setAttribute("value", level);
+}
+
+function lap(cb, nr) {
+    setTimeout(recursiveTimeout, nr);
+
+    function recursiveTimeout() {
+        cb();
+        setTimeout(recursiveTimeout, nr);
+    }
+}
+lap(dropFood, 10000);
+lap(dropSleep, 15000);
+lap(dropHappiness, 7000);
