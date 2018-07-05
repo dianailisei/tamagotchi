@@ -9,79 +9,37 @@
 </head>
 <body>
     <div id="background">
-        <div id="character">
-            <img src="normal1.png">
-        </div>
+        
         <div>
             <div class="caracteristici" id="mancare">
-                <span id="mancare-img"><img src="mancare.png"></span>
-                <div class="status">
-                    <span class="red"></span>
-                    <span class="red"></span>
-                    <span class="red"></span>
-                    <span class="red"></span>
-                    <span class="red"></span>
-                    <span class="yellow"></span>
-                    <span class="yellow"></span>
-                    <span class="yellow"></span>
-                    <span class="yellow"></span>
-                    <span class="yellow"></span>
-                    <span class="green"></span>
-                    <span class="green"></span>
-                    <span class="green"></span>
-                    <span class="green"></span>
-                    <span class="green"></span>
-                </div>
+                <span id="mancare-img" onclick="giveFood()"><img src="mancare.png"></span>
+                <meter value="5" min="-1" low="5" high="10" optimum="12" max="20"></meter>
+                
             </div>
 
             <div class="caracteristici" id="somn">
-                <span id="somn-img"><img src="pat.png"></span>
-                <div class="status">
-                        <span class="red"></span>
-                        <span class="red"></span>
-                        <span class="red"></span>
-                        <span class="red"></span>
-                        <span class="red"></span>
-                        <span class="yellow"></span>
-                        <span class="yellow"></span>
-                        <span class="yellow"></span>
-                        <span class="yellow"></span>
-                        <span class="yellow"></span>
-                        <span class="green"></span>
-                        <span class="green"></span>
-                        <span class="green"></span>
-                        <span class="green"></span>
-                        <span class="green"></span>
-                </div>
+                <span id="somn-img" onclick="giveSleep()"><img src="pat.png"></span>
+                <meter value="5" min="-1" low="5" high="10" optimum="12" max="20"></meter>
+                
             </div>
             <div class="caracteristici" id="jocuri">
-                <span id="jocuri-img"><img src="joc.png"></span>
-                <div class="status">
-                    <span class="red"></span>
-                        <span class="red"></span>
-                        <span class="red"></span>
-                        <span class="red"></span>
-                        <span class="red"></span>
-                        <span class="yellow"></span>
-                        <span class="yellow"></span>
-                        <span class="yellow"></span>
-                        <span class="yellow"></span>
-                        <span class="yellow"></span>
-                        <span class="green"></span>
-                        <span class="green"></span>
-                        <span class="green"></span>
-                        <span class="green"></span>
-                        <span class="green"></span>
-                </div>
+                <span id="jocuri-img" onclick="giveHappiness()"><img src="joc.png"></span>
+                <meter value="5" min="-1" low="5" high="10" optimum="12" max="20"></meter>
+                
+            </div>
+
+            <div id="character">
+                <img src="normal1.png" onclick="setNames()">
             </div>
         </div>
         <div id="dialog">
             <img src="dialog.png" alt="hello">
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 
-<script>
+<!-- <script>
     var setElementHeight = function () {
         var height = $(window).height();
         $('.autoheight').css('min-height', (height));
@@ -99,5 +57,5 @@
     }
 
     
-</script>
+</script> -->
 </html>

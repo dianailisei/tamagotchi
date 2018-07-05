@@ -135,3 +135,9 @@ html, body{
 #dialog img{
     width:39%;
 }
+
+meter {
+    height: 50px;
+    width: 300px;
+    margin-bottom: 8px;
+}
