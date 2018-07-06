@@ -59,17 +59,21 @@ function checkLevel() {
         sum += parseInt(document.getElementsByTagName("meter")[i].getAttribute("value"));
     }
     if(sum >= 18) {
-        document.getElementById("poza_caracter").setAttribute("src", "normal1.png");
+        document.getElementById("poza_caracter").setAttribute("src", "happy1.png");
     }
     for(var i=0; i<3; i++)
     {
         var level = parseInt(document.getElementsByTagName("meter")[i].getAttribute("value"));
         
         if(level<=6) {
-            document.getElementById("poza_caracter").setAttribute("src", "30967-2.png");
-        }
-        if(level>6 && level<=12) {
-            document.getElementById("poza_caracter").setAttribute("src", "30967-1.png");
+            if(i===1) {
+                document.getElementById("poza_caracter").setAttribute("src", "sad.png");                
+                document.getElementById("dialog").style.display = "block";
+            }
+            else {
+                document.getElementById("poza_caracter").setAttribute("src", "meh.png");
+                document.getElementById("dialog").style.display = "block";
+            }
         }
     }
 }
@@ -83,7 +87,7 @@ function lap(cb, nr) {
     }
 }
 
-lap(dropFood, 9000);
-lap(dropSleep, 10000);
-lap(dropHappiness, 7000);
+lap(dropFood, 1000);
+lap(dropSleep, 1000);
+lap(dropHappiness, 1000);
 lap(checkLevel, 100);
