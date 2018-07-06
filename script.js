@@ -66,12 +66,10 @@ function checkLevel() {
         var level = parseInt(document.getElementsByTagName("meter")[i].getAttribute("value"));
         
         if(level<=6) {
-            if(i===1) {
-                document.getElementById("poza_caracter").setAttribute("src", "30967-2.png");
-            }
-            else {
-                document.getElementById("poza_caracter").setAttribute("src", "30967-1.png");
-            }
+            document.getElementById("poza_caracter").setAttribute("src", "30967-2.png");
+        }
+        if(level>6 && level<=12) {
+            document.getElementById("poza_caracter").setAttribute("src", "30967-1.png");
         }
     }
 }
@@ -86,6 +84,6 @@ function lap(cb, nr) {
 }
 
 lap(dropFood, 9000);
-lap(dropSleep, 1000);
+lap(dropSleep, 10000);
 lap(dropHappiness, 7000);
 lap(checkLevel, 100);
