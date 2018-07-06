@@ -68,7 +68,6 @@ function checkLevel() {
         if(level<=6) {
             document.getElementById("poza_caracter").setAttribute("src", "sad.png");
             if(i==2){
-                document.getElementById("dialog").setAttribute("visibility", "visible");
                 document.getElementById("dialog1").setAttribute("src", "dialog2.png");
             }
         }
