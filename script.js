@@ -67,10 +67,15 @@ function checkLevel() {
         
         if(level<=6) {
             document.getElementById("poza_caracter").setAttribute("src", "sad.png");
+            if(i==2){
+                document.getElementById("dialog").setAttribute("visibility", "visible");
+                document.getElementById("dialog1").setAttribute("src", "dialog2.png");
+            }
         }
         if(level>6 && level<=12) {
             document.getElementById("poza_caracter").setAttribute("src", "meh.png");
         }
+
     }
 }
 
@@ -85,5 +90,5 @@ function lap(cb, nr) {
 
 lap(dropFood, 9000);
 lap(dropSleep, 10000);
-lap(dropHappiness, 7000);
+lap(dropHappiness, 1000);
 lap(checkLevel, 100);
