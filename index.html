@@ -7,32 +7,34 @@
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
-<body>
-    <div id="background">
-        
-        <div>
-            <div class="caracteristici" id="mancare">
-                <span id="mancare-img" onclick="giveFood()"><img src="mancare.png"></span>
-                <meter value="13" min="-1" low="6" high="13" optimum="18" max="20"></meter>  
-            </div>
-
-            <div class="caracteristici" id="somn">
-                <span id="somn-img" onclick="giveSleep()"><img src="pat.png"></span>
-                <meter value="13" min="-1" low="6" high="13" optimum="18" max="20"></meter>  
-            </div>
-
-            <div class="caracteristici" id="jocuri">
-                <span id="jocuri-img" onclick="giveHappiness()"><img src="joc.png"></span>
-                <meter value="13" min="-1" low="6" high="13" optimum="18" max="20"></meter> 
-            </div>
-
-            <div id="character">
-                <img id="poza_caracter" src="normal1.png" onclick="setNames()">
-            </div>
+<body id="background">  
+    <div>
+        <div class="caracteristici" id="mancare">
+            <span id="mancare-img" onclick="giveFood()"><img src="mancare.png"></span>
+            <meter value="13" min="-1" low="6" high="13" optimum="18" max="20"></meter>  
         </div>
-        <div id="dialog">
-            <img src="dialog.png" alt="hello">
+
+        <div class="caracteristici" id="somn">
+            <span id="somn-img" onclick="giveSleep()"><img src="pat.png"></span>
+            <meter value="13" min="-1" low="6" high="13" optimum="18" max="20"></meter>  
         </div>
+
+        <div class="caracteristici" id="jocuri">
+            <span id="jocuri-img" onclick="giveHappiness()"><img src="joc.png"></span>
+            <meter value="13" min="-1" low="6" high="13" optimum="18" max="20"></meter> 
+        </div>
+
+        <div id="character">
+            <img id="poza_caracter" src="happy1.png" onclick="setNames()">
+        </div>
+    </div>
+    <div id="dialog">
+        <img src="dialog1.png" id="dialog-foame-da" alt="Hello">
+        <img src="dialog2.png" id="dialog-joaca-da" alt="Hello">
+        <img src="dialog3.png" id="dialog-somn-da" alt="hello">
+        <img src="dialog4.png" id="dialog-foame-nu" alt="hello">
+        <img src="dialog5.png" id="dialog-joaca-nu" alt="hello">
+        <img src="dialog6.png" id="dialog-somn-nu" alt="hello">
     </div>
     <script src="script.js"></script>
 </body>

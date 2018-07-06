@@ -48,7 +48,7 @@ html, body{
     width:100%;
 }
 #background{
-    background-image:url("background-image.png");
+    background-image:url("backgound-2.png");
     width:100%;
     height:100%;
     background-repeat: no-repeat;
@@ -58,8 +58,8 @@ html, body{
 
 #character{
     position:absolute;
-    bottom:0;
-    left:35%;
+    bottom:45px;
+    left:42%;
 }
 
 #character img{
@@ -75,65 +75,55 @@ html, body{
     margin-top:20px;
 }
 
+.caracteristici img{
+    margin-right:10px;
+    margin-left:8px;
+}
+
 #mancare{
     margin-left:10px;
 }
 
 #mancare-img img{
     width:20%;
-    margin-right:10px;
 }
 
 #somn-img img{
-    width:16%;
-    margin-right:10px;
-    margin-left:8px;
+    width:16%;   
 }
 
 #jocuri-img img{
     width:20.5%;
-    margin-right:10px;
-    margin-left:8px;
-}
-
-
-.status{
-    display: inline;
-}
-
-.red{
-    width:4%;
-    height:48px;
-    background-color: #d64161;
-    display:inline-block;
-    border-radius:5px;
-}
-
-.yellow{
-    width:4%;
-    height:48px;
-    background-color: #ffef96;
-    display:inline-block;
-    border-radius:5px;
-}
-
-.green{
-    width:4%;
-    height:48px;
-    background-color: #82b74b;
-    display:inline-block;
-    border-radius:5px;
 }
 
 #dialog{
     position:absolute;
-    left:49%;
-    bottom:203px;
-    display:none;
+    left:54%;
+    bottom:182px;
+    display:block;
 }
 
 #dialog img{
     width:39%;
+}
+
+#dialog-foame-da{
+    display:none;
+}
+#dialog-joaca-da{
+    display:none;
+}
+#dialog-somn-da{
+    display:none;
+}
+#dialog-foame-nu{
+    display:none;
+}
+#dialog-joaca-nu{
+    display:none;
+}
+#dialog-somn-nu{
+    display:none;
 }
 
 meter {
