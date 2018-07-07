@@ -8,28 +8,56 @@ function createTamagotchi (inputName, inputUserName, foodLevel = 13, sleepLevel 
         sleep: sleepLevel,
 
         eat: function() {
-            var level = parseInt(foodMeter.getAttribute("value")) +1;
-            foodMeter.setAttribute("value", level);
+            var level = parseInt(foodMeter.getAttribute("value"));
+            if(level < 20) {
+                level +=1;
+                foodMeter.setAttribute("value", level);
+            }
+            else {
+                //m-am saturat
+            }
         },
         rest: function() {
-            var level = parseInt(sleepMeter.getAttribute("value")) +1;
-            sleepMeter.setAttribute("value", level);
+            var level = parseInt(sleepMeter.getAttribute("value"));
+            if(level < 20) {
+                level +=1;
+                sleepMeter.setAttribute("value", level);
+            }
+            else {
+                //m-am odihnit destul
+            }
         },
         play: function() {
-            var level = parseInt(happinessMeter.getAttribute("value")) +1;
-            happinessMeter.setAttribute("value", level);
+            var level = parseInt(happinessMeter.getAttribute("value"));
+            if(level < 20) {
+                level +=1;
+                happinessMeter.setAttribute("value", level);
+            }
+            else {
+                //m-am jucat destul
+                
+            }
         },
         dropFood: function() {
-            var level = parseInt(foodMeter.getAttribute("value")) -1;
-            foodMeter.setAttribute("value", level);
+            var level = parseInt(foodMeter.getAttribute("value"));
+            if(level > 0) {
+                level -=1;
+                foodMeter.setAttribute("value", level);
+            }
         },
         dropSleep: function() {
-            var level = parseInt(sleepMeter.getAttribute("value")) -1;
-            sleepMeter.setAttribute("value", level);
+            var level = parseInt(sleepMeter.getAttribute("value"));
+            if(level > 0) {
+                level -=1;
+                sleepMeter.setAttribute("value", level);
+            }
         },
         dropHappiness: function() {
-            var level = parseInt(happinessMeter.getAttribute("value")) -1;
-            happinessMeter.setAttribute("value", level);
+            var level = parseInt(happinessMeter.getAttribute("value"));
+            if(level > 0) {
+                level -=1;
+                happinessMeter.setAttribute("value", level);
+            }
         }
     }
     return tamagotchi;
