@@ -41,8 +41,6 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-
 html, body{
     height:100%;
     width:100%;
@@ -55,17 +53,14 @@ html, body{
     background-size: 100% 100%;
     position:relative;   
 }
-
 #character{
     position:absolute;
     bottom:45px;
     left:42%;
 }
-
 #character img{
     width:50%;
 }
-
 .features{
     border:1px solid black;
     border-radius:15px;
@@ -81,42 +76,23 @@ html, body{
 #food-img img{
     width:20%;
 }
-
 #sleep-img img{
     width:16%;
 }
-
 #game-img img{
     width:20.5%;
 }
-
-#dialog{
+#dialog-text{
     position:absolute;
-    left:54%;
-    bottom:182px;
-    display:block;
-}
-#dialog img{
-    width:39%;
-}
-#dialog-hungry-yes{
+    left: 62%;
+    bottom: 205px;
     display:none;
+    padding:20px 30px;
+    background-color: #ffff99;
+    border-radius:10px;
+    border:1px solid black;
 }
-#dialog-play-yes{
-    display:none;
-}
-#dialog-sleep-yes{
-    display:none;
-}
-#dialog-hungry-no{
-    display:none;
-}
-#dialog-play-no{
-    display:none;
-}
-#dialog-sleep-no{
-    display:none;
-}
+
 meter {
     height: 50px;
     width: 67%;
