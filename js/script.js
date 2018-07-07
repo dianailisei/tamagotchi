@@ -5,7 +5,7 @@ function createTamagotchi (inputName, inputUserName, foodLevel = 13, sleepLevel 
         age: years,
         food: foodLevel,
         happiness: happinessLevel,
-        sleep: sleepLevel
+        sleep: sleepLevel,
     }
     return tamagotchi;
 }
@@ -30,6 +30,11 @@ function setNames() {
 let foodMeter = document.getElementsByTagName("meter")[0];
 let sleepMeter = document.getElementsByTagName("meter")[1];
 let happinessMeter = document.getElementsByTagName("meter")[2];
+
+document.getElementById("food-img").addEventListener("click", giveFood);
+document.getElementById("sleep-img").addEventListener("click", giveSleep);
+document.getElementById("game-img").addEventListener("click", giveHappiness);
+document.getElementById("character-img").addEventListener("click", setNames);
 
 function giveFood() {
     var level = parseInt(foodMeter.getAttribute("value")) +1;
@@ -65,7 +70,7 @@ function checkLevel() {
     var sum = 0;
     for(var i=0; i<3; i++)
     {
-        sum = foodLvl + sleepLvl + happinessLvl;
+        sum = parseInt(foodMeter.getAttribute("value")) + parseInt(sleepMeter.getAttribute("value")) + parseInt(happinessMeter.getAttribute("value"));
         if(sum >= 18) {
             document.getElementById("character-img").setAttribute("src", "./images/happy1.png");
         }
@@ -80,16 +85,7 @@ function checkLevel() {
     }
 }
 
-function lap(cb, nr) {
-    setTimeout(recursiveTimeout, nr);
-
-    function recursiveTimeout() {
-        cb();
-        setTimeout(recursiveTimeout, nr);
-    }
-}
-
-lap(dropFood, 9000);
-lap(dropSleep, 10000);
-lap(dropHappiness, 7000);
-lap(checkLevel, 100);
+setInterval(dropFood, 9000);
+setInterval(dropSleep, 10000);
+setInterval(dropHappiness, 7000);
+setInterval(checkLevel, 100);
