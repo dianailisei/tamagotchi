@@ -35,7 +35,7 @@ function createTamagotchi (inputName, inputUserName, foodLevel = 13, sleepLevel 
             }
             else {
                 //m-am jucat destul
-                
+
             }
         },
         dropFood: function() {
@@ -84,42 +84,69 @@ let foodMeter = document.getElementsByTagName("meter")[0];
 let sleepMeter = document.getElementsByTagName("meter")[1];
 let happinessMeter = document.getElementsByTagName("meter")[2];
 let dialogText = document.getElementById("dialog-text");
+let characterImage = document.getElementById("character-img");
 
 document.getElementById("food-img").addEventListener("click", myPet.eat);
 document.getElementById("sleep-img").addEventListener("click", myPet.rest);
 document.getElementById("game-img").addEventListener("click", myPet.play);
-document.getElementById("character-img").addEventListener("click", setNames);
+characterImage.addEventListener("click", setNames);
 
 function checkLevel() {
     var sum = 0;
+    dialogText.style.display="none";
     for(var i=0; i<3; i++)
     {
         sum = parseInt(foodMeter.getAttribute("value")) + parseInt(sleepMeter.getAttribute("value")) + parseInt(happinessMeter.getAttribute("value"));
         if(sum >= 18) {
-            document.getElementById("character-img").setAttribute("src", "./images/happy1.png");
+            characterImage.setAttribute("src", "./images/happy1.png");
         }
         var level = parseInt(document.getElementsByTagName("meter")[i].getAttribute("value"));
             
         if(level<=6) {
-            document.getElementById("character-img").setAttribute("src", "./images/sad.png");
-            dialogText.style.display="block";
-            var element = document.createElement("p");
-            var elementText = document.createTextNode("Mi-e foame");
-            element.appendChild(elementText);
-
-            var addElement = document.getElementById("dialog-text");
-            addElement.appendChild(element);
-            setTimeout(function() {
-                dialogText.fadeOut('fast');
-            }, 1000); 
+            characterImage.setAttribute("src", "./images/sad.png");
+            switch(i) {
+                case 0: {
+                    addWarning("Mi-e foame", "food");
+                    setTimeout(hideWarning(), 100);
+                    break;
+                }
+                case 1: {
+                    addWarning("Mi-e somn", "sleep");
+                    setTimeout(hideWarning(), 100);
+                    break;
+                }
+                case 2: {
+                    addWarning("Vreau sa ma joc", "play");
+                    setTimeout(hideWarning(), 100);
+                    break;
+                }
+            }
         }
+        
         if(level>6 && level<=12) {
-                document.getElementById("character-img").setAttribute("src", "./images/meh.png");
+                characterImage.setAttribute("src", "./images/meh.png");
         }        
     }
 }
 
-setInterval(myPet.dropFood, 9000);
-setInterval(myPet.dropSleep, 10000);
-setInterval(myPet.dropHappiness, 7000);
+function addWarning(warningText, typeOfWarning) {
+    dialogText.style.display="block";
+    var element = document.querySelector(`[data-type=${typeOfWarning}]`);
+    if(element === null) {
+        element = document.createElement("p");
+        element.setAttribute("data-type", typeOfWarning);
+        var elementText = document.createTextNode(warningText);
+        element.appendChild(elementText);
+        dialogText.appendChild(element);
+        //setTimeout(hideWarning(typeOfWarning), 100);
+    }
+    
+}
+
+function hideWarning(typeOfWarning) {
+    document.querySelector(`[data-type=${typeOfWarning}]`).setAttribute("display", "none");
+}
+setInterval(myPet.dropFood, 1000);
+setInterval(myPet.dropSleep, 3000);
+setInterval(myPet.dropHappiness, 2000);
 setInterval(checkLevel, 100);
