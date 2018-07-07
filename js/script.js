@@ -6,6 +6,59 @@ function createTamagotchi (inputName, inputUserName, foodLevel = 13, sleepLevel 
         food: foodLevel,
         happiness: happinessLevel,
         sleep: sleepLevel,
+
+        eat: function() {
+            var level = parseInt(foodMeter.getAttribute("value"));
+            if(level < 20) {
+                level +=1;
+                foodMeter.setAttribute("value", level);
+            }
+            else {
+                //m-am saturat
+            }
+        },
+        rest: function() {
+            var level = parseInt(sleepMeter.getAttribute("value"));
+            if(level < 20) {
+                level +=1;
+                sleepMeter.setAttribute("value", level);
+            }
+            else {
+                //m-am odihnit destul
+            }
+        },
+        play: function() {
+            var level = parseInt(happinessMeter.getAttribute("value"));
+            if(level < 20) {
+                level +=1;
+                happinessMeter.setAttribute("value", level);
+            }
+            else {
+                //m-am jucat destul
+                
+            }
+        },
+        dropFood: function() {
+            var level = parseInt(foodMeter.getAttribute("value"));
+            if(level > 0) {
+                level -=1;
+                foodMeter.setAttribute("value", level);
+            }
+        },
+        dropSleep: function() {
+            var level = parseInt(sleepMeter.getAttribute("value"));
+            if(level > 0) {
+                level -=1;
+                sleepMeter.setAttribute("value", level);
+            }
+        },
+        dropHappiness: function() {
+            var level = parseInt(happinessMeter.getAttribute("value"));
+            if(level > 0) {
+                level -=1;
+                happinessMeter.setAttribute("value", level);
+            }
+        }
     }
     return tamagotchi;
 }
@@ -32,44 +85,10 @@ let sleepMeter = document.getElementsByTagName("meter")[1];
 let happinessMeter = document.getElementsByTagName("meter")[2];
 let dialogText = document.getElementById("dialog-text");
 
-document.getElementById("food-img").addEventListener("click", giveFood);
-document.getElementById("sleep-img").addEventListener("click", giveSleep);
-document.getElementById("game-img").addEventListener("click", giveHappiness);
+document.getElementById("food-img").addEventListener("click", myPet.eat);
+document.getElementById("sleep-img").addEventListener("click", myPet.rest);
+document.getElementById("game-img").addEventListener("click", myPet.play);
 document.getElementById("character-img").addEventListener("click", setNames);
-
-function giveFood() {
-    var level = parseInt(foodMeter.getAttribute("value")) +1;
-    foodMeter.setAttribute("value", level);
-}
-
-function giveSleep() {
-    var level = parseInt(sleepMeter.getAttribute("value")) +1;
-    sleepMeter.setAttribute("value", level);
-}
-
-function giveHappiness() {
-    var level = parseInt(happinessMeter.getAttribute("value")) +1;
-    happinessMeter.setAttribute("value", level);
-}
-
-function dropFood() {
-    var level = parseInt(foodMeter.getAttribute("value")) -1;
-    foodMeter.setAttribute("value", level);
-}
-
-function dropSleep() {
-    var level = parseInt(sleepMeter.getAttribute("value")) -1;
-    sleepMeter.setAttribute("value", level);
-}
-
-function dropHappiness() {
-    var level = parseInt(happinessMeter.getAttribute("value")) -1;
-    happinessMeter.setAttribute("value", level);
-}
-setTimeout(function() {
-    dialogText.fadeOut('fast');
-}, 1000); 
-
 
 function checkLevel() {
     var sum = 0;
@@ -100,7 +119,7 @@ function checkLevel() {
     }
 }
 
-setInterval(dropFood, 9000);
-setInterval(dropSleep, 10000);
-setInterval(dropHappiness, 7000);
+setInterval(myPet.dropFood, 9000);
+setInterval(myPet.dropSleep, 10000);
+setInterval(myPet.dropHappiness, 7000);
 setInterval(checkLevel, 100);
