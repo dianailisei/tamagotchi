@@ -66,7 +66,7 @@ html, body{
     width:50%;
 }
 
-.caracteristici{
+.features{
     border:1px solid black;
     border-radius:15px;
     display:inline-block;
@@ -74,25 +74,19 @@ html, body{
     width:32%;
     margin-top:20px;
 }
-
-.caracteristici img{
+ .features img {
     margin-right:10px;
     margin-left:8px;
-}
-
-#mancare{
-    margin-left:10px;
-}
-
-#mancare-img img{
+ }
+#food-img img{
     width:20%;
 }
 
-#somn-img img{
-    width:16%;   
+#sleep-img img{
+    width:16%;
 }
 
-#jocuri-img img{
+#game-img img{
     width:20.5%;
 }
 
@@ -105,26 +99,48 @@ html, body{
 #dialog img{
     width:39%;
 }
-#dialog-foame-da{
+#dialog-hungry-yes{
     display:none;
 }
-#dialog-joaca-da{
+#dialog-play-yes{
     display:none;
 }
-#dialog-somn-da{
+#dialog-sleep-yes{
     display:none;
 }
-#dialog-foame-nu{
+#dialog-hungry-no{
     display:none;
 }
-#dialog-joaca-nu{
+#dialog-play-no{
     display:none;
 }
-#dialog-somn-nu{
+#dialog-sleep-no{
     display:none;
 }
 meter {
     height: 50px;
-    width: 300px;
+    width: 67%;
     margin-bottom: 8px;
+}
+
+@media(max-width:767px){
+    .features {
+        width: 95%;
+        margin-top: 10px;
+        margin-left: 7px;
+    }
+    #food-img img{
+        width:11%;
+    }
+    #sleep-img img{
+        width:10%;
+    }
+    #game-img img{
+        width:10.5%;
+    }
+    meter {
+        height: 20px;
+        width: 79%;
+        margin-bottom: 5px;
+    }
 }

@@ -67,15 +67,15 @@ function checkLevel() {
     {
         sum = foodLvl + sleepLvl + happinessLvl;
         if(sum >= 18) {
-            document.getElementById("poza_caracter").setAttribute("src", "./images/happy1.png");
+            document.getElementById("character-img").setAttribute("src", "./images/happy1.png");
         }
         var level = parseInt(document.getElementsByTagName("meter")[i].getAttribute("value"));
             
         if(level<=6) {
-            document.getElementById("poza_caracter").setAttribute("src", "./images/sad.png");
+            document.getElementById("character-img").setAttribute("src", "./images/sad.png");
         }
         if(level>6 && level<=12) {
-                document.getElementById("poza_caracter").setAttribute("src", "./images/meh.png");
+                document.getElementById("character-img").setAttribute("src", "./images/meh.png");
         }
     }
 }
