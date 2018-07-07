@@ -1,87 +1,82 @@
-var tamagotchi = {
-    name:"",
-    userName:"",
-    age: 22,
-    food: 20,
-    happiness: 20,
-    sleep: 20
+function createTamagotchi (inputName, inputUserName, foodLevel = 13, sleepLevel = 13, happinessLevel = 13, years = 22) {
+    let tamagotchi = {
+        name:inputName,
+        userName:inputUserName,
+        age: years,
+        food: foodLevel,
+        happiness: happinessLevel,
+        sleep: sleepLevel
+    }
+    return tamagotchi;
 }
+var myPet = createTamagotchi();
 
 function setNames() {
-    if(tamagotchi.name == "")
+    if(myPet.name === undefined)
     {
-        tamagotchi.name=prompt("Please, give me a name", "Tammy");
-        tamagotchi.userName=prompt("What's your name?", "User");
-        alert("Hello, "+tamagotchi.userName+"! Welcome to my world!");
+        var name=prompt("Please, give me a name", "Tammy");
+        var userName=prompt("What's your name?", "User");
+        alert("Hello, "+userName+"! Welcome to my world!");
     }
     else {
-        if(tamagotchi.userName=="") {
-            tamagotchi.userName=prompt("What's your name?", "");
+        if(userName === undefined) {
+            userName=prompt("What's your name?", "");
         }
-        alert("Hello, "+tamagotchi.userName+"! My name is "+tamagotchi.name);
+        alert("Hello, "+userName+"! My name is "+name);
     }
+    myPet = createTamagotchi(name, userName);
 }
 
+let foodMeter = document.getElementsByTagName("meter")[0];
+let sleepMeter = document.getElementsByTagName("meter")[1];
+let happinessMeter = document.getElementsByTagName("meter")[2];
+
 function giveFood() {
-    var level = parseInt(document.getElementsByTagName("meter")[0].getAttribute("value")) +1;
-    document.getElementsByTagName("meter")[0].setAttribute("value", level);
+    var level = parseInt(foodMeter.getAttribute("value")) +1;
+    foodMeter.setAttribute("value", level);
 }
 
 function giveSleep() {
-    var level = parseInt(document.getElementsByTagName("meter")[1].getAttribute("value")) +1;
-    document.getElementsByTagName("meter")[1].setAttribute("value", level);
+    var level = parseInt(sleepMeter.getAttribute("value")) +1;
+    sleepMeter.setAttribute("value", level);
 }
 
 function giveHappiness() {
-    var level = parseInt(document.getElementsByTagName("meter")[2].getAttribute("value")) +1;
-    document.getElementsByTagName("meter")[2].setAttribute("value", level);
+    var level = parseInt(happinessMeter.getAttribute("value")) +1;
+    happinessMeter.setAttribute("value", level);
 }
 
 function dropFood() {
-    var level = parseInt(document.getElementsByTagName("meter")[0].getAttribute("value")) -1;
-    document.getElementsByTagName("meter")[0].setAttribute("value", level);
+    var level = parseInt(foodMeter.getAttribute("value")) -1;
+    foodMeter.setAttribute("value", level);
 }
 
 function dropSleep() {
-    var level = parseInt(document.getElementsByTagName("meter")[1].getAttribute("value")) -1;
-    document.getElementsByTagName("meter")[1].setAttribute("value", level);
+    var level = parseInt(sleepMeter.getAttribute("value")) -1;
+    sleepMeter.setAttribute("value", level);
 }
 
 function dropHappiness() {
-    var level = parseInt(document.getElementsByTagName("meter")[2].getAttribute("value")) -1;
-    document.getElementsByTagName("meter")[2].setAttribute("value", level);
+    var level = parseInt(happinessMeter.getAttribute("value")) -1;
+    happinessMeter.setAttribute("value", level);
 }
 
 function checkLevel() {
     var sum = 0;
     for(var i=0; i<3; i++)
     {
-        sum += parseInt(document.getElementsByTagName("meter")[i].getAttribute("value"));
-    }
-    if(sum >= 18) {
-        document.getElementById("poza_caracter").setAttribute("src", "happy1.png");
-    }
-    for(var i=0; i<3; i++)
-    {
+        sum = foodLvl + sleepLvl + happinessLvl;
+        if(sum >= 18) {
+            document.getElementById("poza_caracter").setAttribute("src", "happy1.png");
+        }
         var level = parseInt(document.getElementsByTagName("meter")[i].getAttribute("value"));
-        
+            
         if(level<=6) {
             document.getElementById("poza_caracter").setAttribute("src", "sad.png");
-            document.getElementById("dialog1").style.display = "block";
         }
         if(level>6 && level<=12) {
-            document.getElementById("poza_caracter").setAttribute("src", "meh.png");
+                document.getElementById("poza_caracter").setAttribute("src", "meh.png");
         }
-
-        if(i==0 && level == 10){
-            document.getElementById("dialog-foame-nu").style.display = "none";
-            document.getElementById("dialog-foame-da").style.display = "block";
-        }
-        else if(i==0 && level == 20){
-            document.getElementById("dialog-foame-da").style.display = "none";
-            document.getElementById("dialog-foame-nu").style.display = "block";
-        }
-
     }
 }
 
@@ -94,7 +89,7 @@ function lap(cb, nr) {
     }
 }
 
-lap(dropFood, 1000);
+lap(dropFood, 9000);
 lap(dropSleep, 10000);
-lap(dropHappiness, 1000);
+lap(dropHappiness, 7000);
 lap(checkLevel, 100);
