@@ -1,5 +1,5 @@
 function createTamagotchi (inputName, inputUserName, foodLevel = 13, sleepLevel = 13, happinessLevel = 13, years = 22) {
-    var tamagotchi = {
+    let tamagotchi = {
         name:inputName,
         userName:inputUserName,
         age: years,
@@ -67,15 +67,15 @@ function checkLevel() {
     {
         sum = foodLvl + sleepLvl + happinessLvl;
         if(sum >= 18) {
-            document.getElementById("character-img").setAttribute("src", "happy1.png");
+            document.getElementById("character-img").setAttribute("src", "./images/happy1.png");
         }
         var level = parseInt(document.getElementsByTagName("meter")[i].getAttribute("value"));
             
         if(level<=6) {
-            document.getElementById("character-img").setAttribute("src", "sad.png");
+            document.getElementById("character-img").setAttribute("src", "./images/sad.png");
         }
         if(level>6 && level<=12) {
-                document.getElementById("character-img").setAttribute("src", "meh.png");
+                document.getElementById("character-img").setAttribute("src", "./images/meh.png");
         }
     }
 }
