@@ -82,6 +82,36 @@ html, body{
 #game-img img{
     width:20.5%;
 }
+.pet{
+    display:inline;
+}
+#pet2{
+    display: none;
+}
+#character2{
+    position:absolute;
+    bottom:45px;
+    right:0;
+}
+#character2 img{
+    width:50%;
+}
+#food-img2 img{
+    width:20%;
+}
+#sleep-img2 img{
+    width:16%;
+}
+#game-img2 img{
+    width:20.5%;
+}
+.meter--new-pet{
+    height:40px;
+    margin:5px 0px;
+}
+.features--second-pet{
+    margin-left:70px;
+}
 #dialog-text{
     position:absolute;
     left: 62%;
@@ -98,7 +128,19 @@ meter {
     width: 67%;
     margin-bottom: 8px;
 }
-
+#add-pet{
+    position:absolute;
+    left:5px;
+    top:100px;
+    padding:10px 20px; 
+    background-color: #DDA0DD;
+    color:white;
+    font-size:16px;
+    font-weight: bold;
+    border:0px;
+    border-radius:5px;
+    cursor:pointer;
+}
 @media(max-width:767px){
     .features {
         width: 95%;
