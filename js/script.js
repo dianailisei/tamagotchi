@@ -85,11 +85,45 @@ let sleepMeter = document.getElementsByTagName("meter")[1];
 let happinessMeter = document.getElementsByTagName("meter")[2];
 let dialogText = document.getElementById("dialog-text");
 let characterImage = document.getElementById("character-img");
+let characterSpace = document.getElementById("character");
+let featuresImg =document.getElementsByClassName("features"); 
+let pet2 =document.getElementById("pet2"); 
 
 document.getElementById("food-img").addEventListener("click", myPet.eat);
 document.getElementById("sleep-img").addEventListener("click", myPet.rest);
 document.getElementById("game-img").addEventListener("click", myPet.play);
 characterImage.addEventListener("click", setNames);
+
+document.getElementById("add-pet").addEventListener("click", addPet);
+
+function addPet(){
+    characterSpace.style.left="15%";
+    for(var i=0; i< featuresImg.length;i++){
+        featuresImg[i].style.width = "15%";
+    }
+    foodMeter.style.height="40px";
+    foodMeter.style.marginBottom="5px";
+    foodMeter.style.marginTop="5px";
+
+    sleepMeter.style.height="40px";
+    sleepMeter.style.marginBottom="5px";
+    sleepMeter.style.marginTop="5px";
+
+    happinessMeter.style.height="40px";
+    happinessMeter.style.marginBottom="5px";
+    happinessMeter.style.marginTop="5px";
+
+    // var myPet2=createTamagotchi();
+
+    pet2.style.display="inline";
+}
+
+// function addCharacteristic(){
+
+//     // var chImg=document.createElement("div");
+//     // chImg.classList.add("features");
+//     // var food-img-new=document
+// }
 
 function checkLevel() {
     var sum = 0;
@@ -144,7 +178,7 @@ function addWarning(warningText, typeOfWarning) {
 }
 
 function hideWarning(typeOfWarning) {
-    document.querySelector(`[data-type=${typeOfWarning}]`).setAttribute("display", "none");
+    // document.querySelector(`[data-type=${typeOfWarning}]`).setAttribute("display", "none");
 }
 setInterval(myPet.dropFood, 1000);
 setInterval(myPet.dropSleep, 3000);
