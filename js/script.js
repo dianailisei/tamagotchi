@@ -1,69 +1,68 @@
+var pets = [];
+
 function createTamagotchi (inputName, inputUserName, foodLevel = 13, sleepLevel = 13, happinessLevel = 13, years = 22) {
-    let tamagotchi = {
-        name:inputName,
-        userName:inputUserName,
-        age: years,
-        food: foodLevel,
-        happiness: happinessLevel,
-        sleep: sleepLevel,
-
-        eat: function() {
-            var level = parseInt(foodMeter.getAttribute("value"));
-            if(level < 20) {
-                level +=1;
-                foodMeter.setAttribute("value", level);
+        let name=inputName;
+        let userName=inputUserName;
+        let age= years;
+        let food=foodLevel;
+        let happiness=happinessLevel;
+        let sleep=sleepLevel;
+        let foodMeter = parseInt(document.getElementsByTagName("meter")[0].getAttribute("value"));
+        let sleepMeter = parseInt(document.getElementsByTagName("meter")[1].getAttribute("value"));
+        let happinessMeter = parseInt(document.getElementsByTagName("meter")[2].getAttribute("value"));
+    
+       
+        let publicAPI = {
+            eat: function() {
+                if(foodMeter < 20) {
+                    foodMeter +=1;
+                }
+                else {
+                    //m-am saturat
+                }
+            },
+            rest: function() {
+                if(sleepMeter < 20) {
+                    sleepMeter +=1;
+                }
+                else {
+                    //m-am odihnit destul
+                }
+            },
+            play: function() {
+                if(happinessMeter < 20) {
+                    happinessMeter +=1;
+                }
+                else {
+                    //m-am jucat destul
+    
+                }
+            },
+            dropFood: function() {
+                if(foodMeter > 0) {
+                    foodMeter -=1;
+                }
+            },
+            dropSleep: function() {
+                if(sleepMeter > 0) {
+                    sleepMeter -=1;
+                }
+            },
+            dropHappiness: function() {
+                if(happinessMeter > 0) {
+                    happinessMeter -=1;
+                }
             }
-            else {
-                //m-am saturat
-            }
-        },
-        rest: function() {
-            var level = parseInt(sleepMeter.getAttribute("value"));
-            if(level < 20) {
-                level +=1;
-                sleepMeter.setAttribute("value", level);
-            }
-            else {
-                //m-am odihnit destul
-            }
-        },
-        play: function() {
-            var level = parseInt(happinessMeter.getAttribute("value"));
-            if(level < 20) {
-                level +=1;
-                happinessMeter.setAttribute("value", level);
-            }
-            else {
-                //m-am jucat destul
-
-            }
-        },
-        dropFood: function() {
-            var level = parseInt(foodMeter.getAttribute("value"));
-            if(level > 0) {
-                level -=1;
-                foodMeter.setAttribute("value", level);
-            }
-        },
-        dropSleep: function() {
-            var level = parseInt(sleepMeter.getAttribute("value"));
-            if(level > 0) {
-                level -=1;
-                sleepMeter.setAttribute("value", level);
-            }
-        },
-        dropHappiness: function() {
-            var level = parseInt(happinessMeter.getAttribute("value"));
-            if(level > 0) {
-                level -=1;
-                happinessMeter.setAttribute("value", level);
-            }
-        }
-    }
-    return tamagotchi;
+        }      
+        setInterval(publicAPI.dropFood, 1000);
+        setInterval(publicAPI.dropSleep, 3000);
+        setInterval(publicAPI.dropHappiness, 2000);
+        // setInterval(function(){
+        //     updateUI(foodMeter,sleepMeter,happinessMeter)
+        // }, 100);  
+    return publicAPI;
 }
 var myPet = createTamagotchi();
-
 function setNames() {
     if(myPet.name === undefined)
     {
@@ -127,7 +126,9 @@ function addPet(){
     happinessMeter.style.marginBottom="5px";
     happinessMeter.style.marginTop="5px";
     addCharacteristic();
-    createTamagotchi();
+    var myPet = createTamagotchi();
+    pets.push(myPet);
+    console.log("hello",pets);
 }
 
 function addCharacteristic(){
@@ -202,10 +203,10 @@ function addCharacteristic(){
     happyImg.classList.add("width-13");
     happyImgNew.insertBefore(happyImg,meterNew2);
   
-    
+    let x = Math.floor(Math.random() * (1280 - 10) + 10);
     var characterNew=document.createElement("div");
     characterNew.classList.add("character");
-    characterNew.style.left="42%";
+    characterNew.style.left = `${x}px`;
     document.getElementById("background").appendChild(characterNew);
 
     var characterNewImage=document.createElement("img");
