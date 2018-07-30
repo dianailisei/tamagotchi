@@ -204,7 +204,7 @@ function addCharacteristic(){
     happyImgNew.insertBefore(happyImg,meterNew2);
   
     let x = Math.floor(Math.random() * (1280 - 10) + 10);
-    var characterNew=document.createElement("div");
+    var characterNew=document.createElement("div"); 
     characterNew.classList.add("character");
     characterNew.style.left = `${x}px`;
     document.getElementById("background").appendChild(characterNew);
