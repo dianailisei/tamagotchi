@@ -149,7 +149,7 @@ meter {
 }
 
 .width-13{
-    width:13%;
+    width:10%;
 }
 @media(max-width:767px){
     .features {

@@ -3,6 +3,7 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
     let foodType="food";
     let sleepType="sleep";
     let happyType="happy";
+    console.log("Am intrat in view");
    
     let foodImgNr=document.getElementsByClassName("food-img");
     let sleepImgNr=document.getElementsByClassName("sleep-img");
@@ -23,11 +24,17 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
         }
         
     });
-
+    console.log("Oare ajung vreodata aici?");
     div.notify = function(myPets) {
         div.innerHTML = null;
+        console.log("Am notificat");
+        console.log(myPets);
+
 
         myPets.forEach(function(element) {
+
+            console.log("Am intrat");
+            
             var chImg=document.createElement("div");
             chImg.classList.add("features");
             document.getElementById("background").appendChild(chImg);
@@ -36,13 +43,24 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
             chImg.appendChild(foodImgNew);
 
             var meterNew=document.createElement("meter");
-            meterNew.value=element.getFoodMeter();
+            meterNew.value=element.getFoodMeter() || "10";
+            meterNew.min="-1";
+            meterNew.low="6";
+            meterNew.high="13";
+            meterNew.optimum="18";
+            meterNew.max="20";
+
+            console.log(element.getFoodMeter());
+
             meterNew.classList.add("meter--new");
             foodImgNew.appendChild(meterNew);
 
             var foodImg=document.createElement("img");
             foodImg.setAttribute("data-type",foodType);
             foodImg.setAttribute("data-name",element.getName());
+
+            console.log(element.getName());
+
             foodImg.src="./images/mancare.png";  
             foodImg.classList.add("width-13");
             foodImgNew.insertBefore(foodImg,meterNew);
@@ -55,7 +73,15 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
             chImg1.appendChild(sleepImgNew);
 
             var meterNew1=document.createElement("meter");
-            meterNew.value=element.getSleepMeter();
+            meterNew1.value=element.getSleepMeter() || "10";
+            meterNew1.min="-1";
+            meterNew1.low="6";
+            meterNew1.high="13";
+            meterNew1.optimum="18";
+            meterNew1.max="20";
+
+            console.log(element.getSleepMeter());
+
             meterNew1.classList.add("meter--new");
             sleepImgNew.appendChild(meterNew1);
 
@@ -75,7 +101,15 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
             chImg2.appendChild(happyImgNew);
 
             var meterNew2=document.createElement("meter");
-            meterNew.value=element.getHappinessMeter();
+            meterNew2.value=element.getHappinessMeter() || "10";
+            meterNew2.min="-1";
+            meterNew2.low="6";
+            meterNew2.high="13";
+            meterNew2.optimum="18";
+            meterNew2.max="20";
+
+            console.log(element.getSleepMeter());
+
             meterNew2.classList.add("meter--new");
             happyImgNew.appendChild(meterNew2);
 
