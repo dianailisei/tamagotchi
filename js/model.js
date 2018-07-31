@@ -1,26 +1,33 @@
-let tamagotchi = (function() {
-    let name, userName, age, food=13, happiness=13, sleep=13, foodMeter, sleepMeter, happinessMeter;
+function createTamagotchi(){
+    let petName, userName, age, food=13, happiness=13, sleep=13;
+    setInterval(dropFood, 1000);
+    setInterval(dropSleep, 3000);
+    setInterval(dropHappiness, 2000);
+    let myObservers=[];
+
 
     return {
         eat: function() {
-            if(foodMeter < 20) {
-                foodMeter +=1;
+            if(food < 20) {
+                food +=1;
             }
             else {
                 //m-am saturat
             }
         },
         rest: function() {
-            if(sleepMeter < 20) {
-                sleepMeter +=1;
+            if(sleep < 20) {
+                sleep +=1;
+                notifySubscribers();
             }
             else {
                 //m-am odihnit destul
             }
         },
         play: function() {
-            if(happinessMeter < 20) {
-                happinessMeter +=1;
+            if(happiness < 20) {
+                happiness +=1;
+                notifySubscribers();
             }
             else {
                 //m-am jucat destul
@@ -28,42 +35,47 @@ let tamagotchi = (function() {
             }
         },
         dropFood: function() {
-            if(foodMeter > 0) {
-                foodMeter -=1;
+            if(food > 0) {
+                food -=1;
+                notifySubscribers();
             }
         },
         dropSleep: function() {
-            if(sleepMeter > 0) {
-                sleepMeter -=1;
+            if(sleep > 0) {
+                sleep -=1;
+                notifySubscribers();
             }
         },
         dropHappiness: function() {
-            if(happinessMeter > 0) {
-                happinessMeter -=1;
+            if(happiness > 0) {
+                happiness -=1;
+                notifySubscribers();
             }
         },
-        setNames: function(){
-            if(name === undefined)
-            {
-                var name=prompt("Please, give me a name", "Tammy");
-                var userName=prompt("What's your name?", "User");
-                alert("Hello, "+userName+"! Welcome to my world!");
-            }
-            else {
-                if(userName === undefined) {
-                    userName=prompt("What's your name?", "");
-                }
-                alert("Hello, "+userName+"! My name is "+name);
-            }
+        setNames: function(petName, userName){
+          userName=userName;
+          petName=petName;
         },
         setFoodMeter: function(foodLevel){
-            foodMeter = foodLevel;
+           food = foodLevel;
         },
         setSleepMeter: function(sleepLevel){
-            sleepMeter = sleepLevel;
+            sleep = sleepLevel;
         },
         setHappinessMeter: function(happinessLevel){
-            happinessMeter = happinessLevel;
-        }
+            happiness =  happinessLevel;
+        },
+        getFoodMeter: function(){
+          return foodLevel;
+         },
+         getSleepMeter: function(){
+            return sleepLevel;
+         },
+         getHappinessMeter: function(){
+            return  happinessLevel;
+         },
+         getName : function(){
+            return petName;
+         }
     }
-}());
+};
