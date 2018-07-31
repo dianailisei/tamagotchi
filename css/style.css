@@ -54,12 +54,12 @@ html, body{
     position:relative;   
 }
 .character{
-    position:absolute;
+    display:block;
     bottom:45px;
     left:42%;
 }
 .character img{
-    width:50%;
+    width:20%;
 }
 .features{
     border:1px solid black;
