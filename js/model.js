@@ -1,5 +1,7 @@
-function createTamagotchi(){
+function createTamagotchi(onUpdate,myPetName){
     let petName, userName, age, foodLevel=13, happinessLevel=13, sleepLevel=13;
+
+    petName=myPetName;
     
     let myObservers=[];
 
@@ -7,24 +9,23 @@ function createTamagotchi(){
         if(foodLevel > 0) {
             console.log("Scad viata");
             foodLevel -=1;
-            // console.log(foodLevel);
-            // notifySubscribers();
+            onUpdate();
         }
     }
     function dropSleep() {
         if(sleepLevel > 0) {
             sleepLevel -=1;
-            // notifySubscribers();
+            onUpdate();
         }
     }
     function dropHappiness() {
         if(happinessLevel > 0) {
             happinessLevel -=1;
-            // notifySubscribers();
+            onUpdate();
         }
     }
 
-     setInterval(dropFood, 1000);
+    setInterval(dropFood, 1000);
     setInterval(dropSleep, 3000);
     setInterval(dropHappiness, 2000);
     
@@ -32,26 +33,24 @@ function createTamagotchi(){
 
     return {
         eat: function() {
-            if(food < 20) {
-                food +=1;
+            if(foodLevel < 20) {
+                foodLevel +=1;
             }
             else {
                 //m-am saturat
             }
         },
         rest: function() {
-            if(sleep < 20) {
-                sleep +=1;
-                notifySubscribers();
+            if(sleepLevel < 20) {
+                sleepLevel +=1;
             }
             else {
                 //m-am odihnit destul
             }
         },
         play: function() {
-            if(happiness < 20) {
-                happiness +=1;
-                notifySubscribers();
+            if(happinessLevel < 20) {
+                happinessLevel +=1;
             }
             else {
                 //m-am jucat destul

@@ -12,35 +12,11 @@ let pets =(function(){
         });
     }
     
-    function dropFood(petName){
-        let foundPet = myPets.find(function(c)  {
-            if(element.getName() === petName){
-                element.dropFood();
-                notifySubscribers();                    
-            }
-        });
-    }
-    function dropSleep(petName){
-        let foundPet = myPets.find(function(element)  {
-            if(element.getName() === petName){
-                element.dropSleep();
-                notifySubscribers();                    
-            }
-        });
-    }
-    function dropHappiness(petName){
-        let foundPet = myPets.find(function(element)  {
-            if(element.getName() === petName){
-                element.dropHappiness();
-                notifySubscribers();                    
-            }
-        });
-    }
           
     return{
-        addPet: function(){ 
+        addPet: function(name){ 
             console.log("Am ajuns la model");
-            myPets.push(createTamagotchi());
+            myPets.push(createTamagotchi(notifySubscribers,name));
             notifySubscribers();
         }, 
         addFood:  function(petName){

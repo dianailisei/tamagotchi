@@ -5,8 +5,8 @@ document.getElementById("background").appendChild(petView);
 console.log(petView);
  
  document.getElementById("add-pet").addEventListener("click",function(){
-     console.log("Am ajuns aici");
-     pets.addPet();
+    var petName = prompt("Please enter pet's name", "Harry Potter");
+     pets.addPet(petName);
 });
 
 function onAddFood(petName){

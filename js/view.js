@@ -3,7 +3,6 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
     let foodType="food";
     let sleepType="sleep";
     let happyType="happy";
-    console.log("Am intrat in view");
    
     let foodImgNr=document.getElementsByClassName("food-img");
     let sleepImgNr=document.getElementsByClassName("sleep-img");
@@ -13,37 +12,34 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
     div.addEventListener("click", function(e) {
         let elementClicked = e.target;
 
-        if(elementClicked.dataset["food"]) { 
-            onAddFoodcb(elementClicked.dataset["food"]);
+        if(elementClicked.dataset["type"]=="food") { 
+            onAddFoodcb(elementClicked.dataset["name"]);
         }
-        if(elementClicked.dataset["sleep"]) {
-            onAddSleepcb(elementClicked.dataset["sleep"]);
+        if(elementClicked.dataset["type"]=="sleep") {
+            onAddSleepcb(elementClicked.dataset["name"]);
         }
-        if(elementClicked.dataset["play"]) {
-            onAddPlaycb(elementClicked.dataset["play"]);
+        if(elementClicked.dataset["type"]=="happy") {
+            onAddPlaycb(elementClicked.dataset["name"]);
         }
         
     });
-    console.log("Oare ajung vreodata aici?");
+
     div.notify = function(myPets) {
         div.innerHTML = null;
-        console.log("Am notificat");
-        console.log(myPets);
 
-
-        myPets.forEach(function(element) {
+        myPets.forEach(function(element) {            
 
             console.log("Am intrat");
             
             var chImg=document.createElement("div");
             chImg.classList.add("features");
-            document.getElementById("background").appendChild(chImg);
+            div.appendChild(chImg);
 
             var foodImgNew=document.createElement("span");
             chImg.appendChild(foodImgNew);
 
             var meterNew=document.createElement("meter");
-            meterNew.value=element.getFoodMeter() || "10";
+            meterNew.value=element.getFoodMeter() ;
             meterNew.min="-1";
             meterNew.low="6";
             meterNew.high="13";
@@ -67,13 +63,13 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
 
             var chImg1=document.createElement("div");
             chImg1.classList.add("features");
-            document.getElementById("background").appendChild(chImg1);
+            div.appendChild(chImg1);
 
             var sleepImgNew=document.createElement("span");
             chImg1.appendChild(sleepImgNew);
 
             var meterNew1=document.createElement("meter");
-            meterNew1.value=element.getSleepMeter() || "10";
+            meterNew1.value=element.getSleepMeter() ;
             meterNew1.min="-1";
             meterNew1.low="6";
             meterNew1.high="13";
@@ -95,13 +91,13 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
 
             var chImg2=document.createElement("div");
             chImg2.classList.add("features");
-            document.getElementById("background").appendChild(chImg2);
+            div.appendChild(chImg2);
 
             var happyImgNew=document.createElement("span");
             chImg2.appendChild(happyImgNew);
 
             var meterNew2=document.createElement("meter");
-            meterNew2.value=element.getHappinessMeter() || "10";
+            meterNew2.value=element.getHappinessMeter() ;
             meterNew2.min="-1";
             meterNew2.low="6";
             meterNew2.high="13";
@@ -124,7 +120,7 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
             var characterNew=document.createElement("div");
             characterNew.classList.add("character");
             characterNew.style.left = `${x}px`;
-            document.getElementById("background").appendChild(characterNew);
+            
 
             var characterNewImage=document.createElement("img");
             characterNewImage.setAttribute("data-name", element.getName());
@@ -132,7 +128,7 @@ function createPetsView(myModel, onAddFoodcb, onAddSleepcb, onAddPlaycb) {
             characterNewImage.src="./images/happy1.png";
 
             characterNew.appendChild(characterNewImage);          
-
+            div.appendChild(characterNew);
         }); 
     }
 
