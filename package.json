@@ -1,0 +1,24 @@
+{
+  "name": "tamagotchi",
+  "version": "1.0.0",
+  "description": "My dear pet",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "dev": "babel js --out-dir dist --watch",
+    "prod": "babel js --out-dir dist",
+    "uglify": "uglify-js js js -o dist"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^5.2.0",
+    "eslint-config": "^0.3.0",
+    "eslint-config-airbnb-base": "^13.0.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-prettier": "^2.6.2",
+    "prettier": "^1.14.0",
+    "uglify-js": "^3.4.6"
+  }
+}

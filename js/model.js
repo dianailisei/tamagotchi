@@ -32,7 +32,7 @@ function createTamagotchi(onUpdate,myPetName){
     console.log("Am ajuns la createTama");
 
     return {
-        eat: function() {
+        eat: () => {
             if(foodLevel < 20) {
                 foodLevel +=1;
             }
@@ -40,7 +40,7 @@ function createTamagotchi(onUpdate,myPetName){
                 //m-am saturat
             }
         },
-        rest: function() {
+        rest:  () => {
             if(sleepLevel < 20) {
                 sleepLevel +=1;
             }
@@ -48,7 +48,7 @@ function createTamagotchi(onUpdate,myPetName){
                 //m-am odihnit destul
             }
         },
-        play: function() {
+        play:  () => {
             if(happinessLevel < 20) {
                 happinessLevel +=1;
             }
@@ -57,32 +57,32 @@ function createTamagotchi(onUpdate,myPetName){
 
             }
         },
-        setNames: function(petName, userName){
+        setNames: (petName ,userName) =>{
           userName=userName;
           petName=petName;
         },
-        setFoodMeter: function(foodLevel){
+        setFoodMeter(foodLevel){
             foodLevel = foodLevel;
         },
-        setSleepMeter: function(sleepLevel){
+        setSleepMeter(sleepLevel){
             sleepLevel = sleepLevel;
         },
-        happinessLevel: function(happinessLevel){
+        happinessLevel(happinessLevel){
             happiness =  happinessLevel;
         },
         // getAttr: function(attr){
         //     return pet[attr];
         // }
-        getFoodMeter: function(){
+        getFoodMeter:() =>{
           return foodLevel;
          },
-         getSleepMeter: function(){
+         getSleepMeter: () => {
             return sleepLevel;
          },
-         getHappinessMeter: function(){
+         getHappinessMeter: () => {
             return  happinessLevel;
          },
-         getName : function(){
+         getName : () => {
             return petName;
          }
     }
