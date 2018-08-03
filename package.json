@@ -1,0 +1,22 @@
+{
+  "name": "tamagotchi",
+  "version": "1.0.0",
+  "description": "tamagotchi MVC project",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dianailisei/tamagotchi.git"
+  },
+  "scripts": {
+    "dev": "babel js --out-dir dist --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dianailisei/tamagotchi/issues"
+  },
+  "homepage": "https://github.com/dianailisei/tamagotchi#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
