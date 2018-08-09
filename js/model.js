@@ -1,5 +1,10 @@
 function createTamagotchi(onUpdate,myPetName){
-    let petName, userName, age, foodLevel=13, happinessLevel=13, sleepLevel=13;
+    let petName;
+    let userName;
+    let age;
+    let foodLevel=13;
+    let happinessLevel=13;
+    let sleepLevel=13;
 
     petName=myPetName;
     
@@ -7,7 +12,6 @@ function createTamagotchi(onUpdate,myPetName){
 
     function dropFood() {
         if(foodLevel > 0) {
-            console.log("Scad viata");
             foodLevel -=1;
             onUpdate();
         }
@@ -28,8 +32,6 @@ function createTamagotchi(onUpdate,myPetName){
     setInterval(dropFood, 1000);
     setInterval(dropSleep, 3000);
     setInterval(dropHappiness, 2000);
-    
-    console.log("Am ajuns la createTama");
 
     return {
         eat: () => {
@@ -37,7 +39,7 @@ function createTamagotchi(onUpdate,myPetName){
                 foodLevel +=1;
             }
             else {
-                //m-am saturat
+                // m-am saturat
             }
         },
         rest:  () => {
@@ -45,7 +47,7 @@ function createTamagotchi(onUpdate,myPetName){
                 sleepLevel +=1;
             }
             else {
-                //m-am odihnit destul
+                // m-am odihnit destul
             }
         },
         play:  () => {
@@ -53,38 +55,33 @@ function createTamagotchi(onUpdate,myPetName){
                 happinessLevel +=1;
             }
             else {
-                //m-am jucat destul
+                // m-am jucat destul
 
             }
         },
-        setNames: (petName ,userName) =>{
-          userName=userName;
-          petName=petName;
+        setNames: (petNameParam ,userNameParam) =>{
+          this.userName=userNameParam;
+          this.petName=petNameParam;
         },
-        setFoodMeter(foodLevel){
-            foodLevel = foodLevel;
+        setFoodMeter(foodLevelParam){
+            this.foodLevel = foodLevelParam;
         },
-        setSleepMeter(sleepLevel){
-            sleepLevel = sleepLevel;
+        setSleepMeter(sleepLevelParam){
+            this.sleepLevel = sleepLevel;
         },
-        happinessLevel(happinessLevel){
-            happiness =  happinessLevel;
+        happinessLevel(happinessLevelParam){
+            this.happiness =  happinessLevel;
         },
         // getAttr: function(attr){
         //     return pet[attr];
         // }
-        getFoodMeter:() =>{
-          return foodLevel;
-         },
-         getSleepMeter: () => {
-            return sleepLevel;
-         },
-         getHappinessMeter: () => {
-            return  happinessLevel;
-         },
-         getName : () => {
-            return petName;
-         }
+        getFoodMeter:() => foodLevel,
+        getSleepMeter: () => sleepLevel,
+        getHappinessMeter: () => happinessLevel,
+        getName: () => petName 
+        //  getName : () => {
+        //     return petName;
+        //  }
     }
    
 };

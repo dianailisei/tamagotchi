@@ -2,10 +2,10 @@ let petView = createPetsView(pets , onAddFood, onAddSleep, onAddPlay);
 
 document.getElementById("background").appendChild(petView);
 
-console.log(petView);
+// console.log(petView);
  
- document.getElementById("add-pet").addEventListener("click",function(){
-    var petName = prompt("Please enter pet's name", "Harry Potter");
+ document.getElementById("add-pet").addEventListener("click",function() {
+    let petName = prompt("Please enter pet's name", "Harry Potter");
      pets.addPet(petName);
 });
 
