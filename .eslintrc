@@ -9,7 +9,8 @@
         "no-undef":"off",
         "func-names":"off",
         "no-console":"off",
-        "no-alert":"off"
+        "no-alert":"off",
+        "linebreak-style":"off"
     },
     "plugins":[
         "prettier"

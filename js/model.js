@@ -39,7 +39,7 @@ function createTamagotchi(onUpdate,myPetName){
                 foodLevel +=1;
             }
             else {
-                //  m-am saturat
+                // m-am saturat
             }
         },
         rest:  () => {
@@ -47,7 +47,7 @@ function createTamagotchi(onUpdate,myPetName){
                 sleepLevel +=1;
             }
             else {
-                //  m-am odihnit destul
+                // m-am odihnit destul
             }
         },
         play:  () => {
@@ -55,13 +55,13 @@ function createTamagotchi(onUpdate,myPetName){
                 happinessLevel +=1;
             }
             else {
-                //  m-am jucat destul
+                // m-am jucat destul
 
             }
         },
-        setNames(petNameParam ,userNameParam) {
-          this.userName=petNameParam;
-          this.petName=userNameParam;
+        setNames: (petNameParam, userNameParam) =>{
+          this.userName=userNameParam;
+          this.petName=petNameParam;
         },
         setFoodMeter(foodLevelParam){
             this.foodLevel = foodLevelParam;
@@ -75,10 +75,13 @@ function createTamagotchi(onUpdate,myPetName){
         // getAttr: function(attr){
         //     return pet[attr];
         // }
-        getFoodMeter:()=> foodLevelparam,
-         getSleepMeter: ()=>sleepLevelparam,
-         getHappinessMeter: ()=>happinessLevelparam,
-         getName : ()=>petName
+        getFoodMeter:() => foodLevel,
+        getSleepMeter: () => sleepLevel,
+        getHappinessMeter: () => happinessLevel,
+        getName: () => petName 
+        //  getName : () => {
+        //     return petName;
+        //  }
     }
    
 };

@@ -11,6 +11,7 @@ let pets = (function() {
   }
   return {
     addPet: name => {
+      // console.log('Am ajuns la model');
       myPets.push(createTamagotchi(notifySubscribers, name));
       notifySubscribers();
     },
