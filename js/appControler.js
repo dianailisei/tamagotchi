@@ -20,6 +20,3 @@ document.getElementById("background").appendChild(petView);
     let petName = prompt("Please enter pet's name", "Harry Potter");
      pets.addPet(petName);
 });
-
-
-// test 
