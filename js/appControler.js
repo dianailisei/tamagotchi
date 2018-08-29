@@ -1,44 +1,46 @@
-let petView = createPetsView(pets , onAddFood, onAddSleep, onAddPlay); 
+let petView = createPetsView(pets, onAddFood, onAddSleep, onAddPlay);
 
 document.getElementById("background").appendChild(petView);
 
 console.log(petView);
- 
- document.getElementById("add-pet").addEventListener("click",function(){
+
+document.getElementById("add-pet").addEventListener("click", function () {
     var petName = prompt("Please enter pet's name", "Harry Potter");
-     pets.addPet(petName);
+    pets.addPet(petName);
 });
 
-function onAddFood(petName){
+function onAddFood(petName) {
     pets.addFood(petName);
 }
 
-function onAddSleep(petName){
+function onAddSleep(petName) {
     pets.addSleep(petName);
 }
 
-function onAddPlay(petName){
+function onAddPlay(petName) {
     pets.addHappiness(petName);
 }
 
-let petView = createPetsView(pets , onAddFood, onAddSleep, onAddPlay); 
+let petView = createPetsView(pets, onAddFood, onAddSleep, onAddPlay);
 
 document.getElementById("background").appendChild(petView);
 
 // console.log(petView);
- 
- document.getElementById("add-pet").addEventListener("click", ()=>{
+
+document.getElementById("add-pet").addEventListener("click", () => {
     let petName = prompt("Please enter pet's name", "Harry Potter");
-     pets.addPet(petName);
+    pets.addPet(petName);
 });
+
+let body = document.getElementById("background");
 
 
 ImageService.getImage(
-    function(resp) {
-
-      console.log(resp , "Hello");
+    function (resp) {
+        body.style.background = url("resp");
+        console.log(resp, "Hello");
     },
-    function(err) {
+    function (err) {
         alert('Unauthorized');
     }
 );
