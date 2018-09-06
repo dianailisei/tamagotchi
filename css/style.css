@@ -2,7 +2,7 @@ html,
 body,
 div,
 span,
-applet,
+applet, 
 object,
 iframe,
 h1,
@@ -210,10 +210,9 @@ meter {
   width: 67%;
   margin-bottom: 8px;
 }
-#add-pet {
+.buttonsStyle{
   position: absolute;
-  left: 5px;
-  top: 100px;
+  top: 80px;
   padding: 10px 20px;
   background-color: #dda0dd;
   color: white;
@@ -222,6 +221,9 @@ meter {
   border: 0px;
   border-radius: 5px;
   cursor: pointer;
+}
+#add-pet{
+  left: 5px;  
 }
 
 .meter--new {
@@ -232,6 +234,10 @@ meter {
 
 .width-13 {
   width: 10%;
+}
+#add-joke{
+  position: absolute;
+  right:5px;
 }
 @media (max-width: 767px) {
   .features {
