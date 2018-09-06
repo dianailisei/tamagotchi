@@ -64,3 +64,11 @@ class HTTP {
         }
     }
 }
+
+
+// if (xhr.status === 200) {
+//     resolve(successCb);
+// }
+// else {
+//     reject(errorCb);
+// }
