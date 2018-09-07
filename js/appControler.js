@@ -38,7 +38,7 @@ let body = document.getElementById("background");
 
 let jokeBut = document.getElementById("add-joke");
 let joke = document.getElementById("joke-p");
-jokeBut.addEventListener("click" , function(){    
+jokeBut.addEventListener("click", function () {
     joke.innerText = "";
     // JokeService.getJoke(
     //     function (resp) {
@@ -48,10 +48,10 @@ jokeBut.addEventListener("click" , function(){
     //         alert('Unauthorized');
     //     }
     // );
-    JokeService.getJoke(resp).then(
-        resp => {   joke.innerText = resp.value.joke;},
-        err => { alert('Unauthorized');}
-      );
+    JokeService.getJoke().then(
+        resp => { joke.innerText = resp.value.joke; },
+        err => { alert('Unauthorized'); }
+    );
 })
 
 
